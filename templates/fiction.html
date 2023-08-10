@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<style>
+    .text-red{
+        color:red
+        }
+
+    .text-white{
+        color:white
+        }
+
+    .img {
+        width: 180px;
+        height: 270px;
+        }
+
+    .listing {
+        width:30%;
+        text-align:center;
+        float:center;
+        height:calc(100vh/1.9)
+        }
+}
+
+</style>
+
+
+
+
+<body style="background-color:black">
+
+    <nav class="navbar">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
+
+
+    <center><h4 class="text-white" style="margin-top:50px; margin-bottom:70px; margin-left:50px; font-size:45px; color:#fa4605">Fiction</h4></center>
+
+    <div class="container">
+        <div class="row">
+            <div class="d-flex flex-wrap">
+                {% for i in range(book_fict|length) %}
+                    <div class="col-md-3 mb-3 listing" style="margin-bottom:70px">
+                        <div class="card h-100" style="align-items:start;background-color:#36454f;border-radius:10px">
+                            <a href="{{ url_fict[i] }}"><img class="card-img-bottom img" src="{{ image_fict[i] }}" alt="Book Image" style="margin-top:10px"></a>
+                            <div class="card-body" style="text-align:left;margin-left:20px;margin-bottom:20px">
+                                <a href="{{ url_fict[i] }}"><h4 class="card-title text-white">{{ book_fict[i] }}</h4></a>
+                                <p class="card-text text-white">Author - {{ author_fict[i] }}</p>
+                                <p class="card-text text-white">Rating - {{ rating_fict[i] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
